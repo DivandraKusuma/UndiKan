@@ -5,9 +5,12 @@ import { Plus, CalendarDays, Shuffle, Ticket, Trophy } from 'lucide-react'
 export default async function EventsPage() {
   const supabase = await createClient()
 
+  const { data: { user } } = await supabase.auth.getUser()
+
   const { data: events } = await supabase
     .from('events')
     .select('id, kode_acara, nama, tanggal, status, deskripsi, created_at')
+    .eq('created_by', user?.id)
     .order('created_at', { ascending: false })
 
   // Get ticket & winner counts for each event

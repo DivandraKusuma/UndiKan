@@ -212,7 +212,8 @@ export default function EventDetailClient({
   const handleSaveEvent = async () => {
     setEditLoading(true)
     setEditMsg('')
-    const { error } = await supabase.from('events').update(editForm).eq('id', event.id)
+    const { data: { user } } = await supabase.auth.getUser()
+    const { error } = await supabase.from('events').update(editForm).eq('id', event.id).eq('created_by', user?.id)
     setEditMsg(error ? 'Gagal: ' + error.message : 'Event berhasil diperbarui!')
     setEditLoading(false)
   }

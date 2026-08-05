@@ -8,10 +8,13 @@ export default async function DrawPage({ params }: Props) {
   const { eventId } = await params
   const supabase = await createClient()
 
+  const { data: { user } } = await supabase.auth.getUser()
+
   const { data: event } = await supabase
     .from('events')
     .select('id, nama, kode_acara')
     .eq('id', eventId)
+    .eq('created_by', user?.id)
     .single()
 
   if (!event) notFound()

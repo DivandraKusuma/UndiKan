@@ -10,10 +10,13 @@ export default async function EventDetailPage({ params }: Props) {
   const { id } = await params
   const supabase = await createClient()
 
+  const { data: { user } } = await supabase.auth.getUser()
+
   const { data: event } = await supabase
     .from('events')
     .select('*')
     .eq('id', id)
+    .eq('created_by', user?.id)
     .single()
 
   if (!event) notFound()

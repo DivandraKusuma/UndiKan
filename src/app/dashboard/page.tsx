@@ -10,25 +10,28 @@ export default async function DashboardPage() {
   const { data: events } = await supabase
     .from('events')
     .select('id, nama, kode_acara, status, tanggal, created_at')
+    .eq('created_by', user?.id)
     .order('created_at', { ascending: false })
     .limit(5)
 
-  const { count: totalEvents } = await supabase
+  const { data: allUserEvents } = await supabase
     .from('events')
-    .select('*', { count: 'exact', head: true })
+    .select('id, status')
+    .eq('created_by', user?.id)
 
-  const { count: totalTickets } = await supabase
+  const eventIds = allUserEvents?.map(e => e.id) || []
+  const activeEvents = allUserEvents?.filter(e => e.status === 'aktif').length || 0
+  const totalEvents = eventIds.length
+
+  const { count: totalTickets } = eventIds.length > 0 ? await supabase
     .from('tickets')
     .select('*', { count: 'exact', head: true })
+    .in('event_id', eventIds) : { count: 0 }
 
-  const { count: totalWinners } = await supabase
+  const { count: totalWinners } = eventIds.length > 0 ? await supabase
     .from('winners')
     .select('*', { count: 'exact', head: true })
-
-  const { count: activeEvents } = await supabase
-    .from('events')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'aktif')
+    .in('event_id', eventIds) : { count: 0 }
 
   const greeting = () => {
     const hour = new Date().getHours()
