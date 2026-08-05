@@ -30,7 +30,7 @@ export default async function EventDetailPage({ params }: Props) {
         <Link href="/dashboard/events" className="btn btn-ghost btn-sm">
           <ArrowLeft size={15} /> Kembali
         </Link>
-        <div style={{ marginLeft: 12, flex: 1 }}>
+        <div style={{ flex: 1 }}>
           <div className="top-header-title">{event.nama}</div>
           <div className="top-header-sub">
             <span className="font-mono" style={{ fontSize: 12, background: 'var(--accent-light)', color: 'var(--accent-dark)', padding: '1px 7px', borderRadius: 4, fontWeight: 700 }}>
@@ -40,7 +40,7 @@ export default async function EventDetailPage({ params }: Props) {
             {new Date(event.tanggal).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
           </div>
         </div>
-        <div style={{ display: 'flex', gap: 8 }}>
+        <div className="top-header-actions">
           <Link href={`/dashboard/draw/${event.id}`} className="btn btn-primary">
             <Shuffle size={15} /> Mulai Undian
           </Link>

@@ -222,7 +222,7 @@ export default function EventDetailClient({
   return (
     <div>
       {/* Tabs */}
-      <div style={{ display: 'flex', gap: 4, marginBottom: 20, borderBottom: '2px solid var(--card-border)', paddingBottom: 0 }}>
+      <div style={{ display: 'flex', gap: 4, marginBottom: 20, borderBottom: '2px solid var(--card-border)', paddingBottom: 0, overflowX: 'auto', whiteSpace: 'nowrap' }}>
         {([['tickets', 'Tiket', <Ticket size={14} key="t" />], ['winners', 'Pemenang', <Trophy size={14} key="w" />], ['settings', 'Pengaturan', <Pencil size={14} key="s" />]] as const).map(([tab, label, icon]) => (
           <button
             key={tab}
@@ -253,7 +253,7 @@ export default function EventDetailClient({
       {activeTab === 'tickets' && (
         <div>
           {/* Generate button & counter */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, flexWrap: 'wrap' }}>
             <div style={{ flex: 1 }}>
               <span style={{ fontWeight: 700, fontSize: 15 }}>{ticketCount.toLocaleString('id-ID')}</span>
               <span style={{ color: 'var(--text-muted)', fontSize: 13, marginLeft: 6 }}>tiket terdaftar</span>

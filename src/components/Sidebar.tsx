@@ -10,6 +10,7 @@ import {
   Trophy,
   Shuffle,
   LogOut,
+  X,
 } from 'lucide-react'
 
 const navItems = [
@@ -20,9 +21,11 @@ const navItems = [
 
 interface SidebarProps {
   userEmail?: string
+  isOpen?: boolean
+  onClose?: () => void
 }
 
-export default function Sidebar({ userEmail }: SidebarProps) {
+export default function Sidebar({ userEmail, isOpen, onClose }: SidebarProps) {
   const pathname = usePathname()
   const router = useRouter()
 
@@ -42,11 +45,23 @@ export default function Sidebar({ userEmail }: SidebarProps) {
   const displayEmail = userEmail ? (userEmail.length > 20 ? userEmail.slice(0, 18) + '…' : userEmail) : 'Event Organizer'
 
   return (
-    <aside className="sidebar">
-      {/* Logo */}
+    <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar-logo">
-        <div className="sidebar-logo-text">
-          Kocok<span>!</span>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div className="sidebar-logo-text">
+            Kocok<span>!</span>
+          </div>
+          {/* Mobile close button */}
+          <button 
+            className="mobile-close-btn d-md-none" 
+            onClick={onClose}
+            style={{ 
+              background: 'none', border: 'none', color: 'var(--sidebar-text)', 
+              cursor: 'pointer', display: 'flex', padding: 4 
+            }}
+          >
+            <X size={20} />
+          </button>
         </div>
         <div className="sidebar-logo-sub">Event Organizer Platform</div>
       </div>
@@ -59,7 +74,7 @@ export default function Sidebar({ userEmail }: SidebarProps) {
           const Icon = item.icon
           const active = isActive(item.href)
           return (
-            <Link key={item.href} href={item.href} className={`sidebar-item ${active ? 'active' : ''}`}>
+            <Link key={item.href} href={item.href} onClick={onClose} className={`sidebar-item ${active ? 'active' : ''}`}>
               <Icon size={17} className="sidebar-icon" />
               {item.label}
             </Link>
@@ -68,7 +83,7 @@ export default function Sidebar({ userEmail }: SidebarProps) {
 
         <div className="sidebar-section-label" style={{ marginTop: 16 }}>Aksi Cepat</div>
 
-        <Link href="/dashboard/events/new" className="sidebar-item">
+        <Link href="/dashboard/events/new" onClick={onClose} className="sidebar-item">
           <CalendarDays size={17} className="sidebar-icon" />
           + Buat Event
         </Link>

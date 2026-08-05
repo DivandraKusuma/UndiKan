@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
-import Sidebar from '@/components/Sidebar'
+import DashboardClientWrapper from '@/components/DashboardClientWrapper'
 
 export default async function DashboardLayout({
   children,
@@ -15,11 +15,8 @@ export default async function DashboardLayout({
   }
 
   return (
-    <div className="app-layout">
-      <Sidebar userEmail={user.email} />
-      <div className="main-content">
-        {children}
-      </div>
-    </div>
+    <DashboardClientWrapper userEmail={user.email}>
+      {children}
+    </DashboardClientWrapper>
   )
 }

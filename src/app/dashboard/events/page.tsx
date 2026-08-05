@@ -35,9 +35,11 @@ export default async function EventsPage() {
           <div className="top-header-title">Daftar Event</div>
           <div className="top-header-sub">Kelola semua event doorprize Anda</div>
         </div>
-        <Link href="/dashboard/events/new" className="btn btn-primary" style={{ marginLeft: 'auto' }}>
-          <Plus size={15} /> Buat Event
-        </Link>
+        <div className="top-header-actions ml-auto">
+          <Link href="/dashboard/events/new" className="btn btn-primary">
+            <Plus size={15} /> Buat Event
+          </Link>
+        </div>
       </div>
 
       <div className="page-wrapper">

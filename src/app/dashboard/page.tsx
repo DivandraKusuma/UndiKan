@@ -49,9 +49,11 @@ export default async function DashboardPage() {
             {new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
           </div>
         </div>
-        <Link href="/dashboard/events/new" className="btn btn-primary" style={{ marginLeft: 'auto' }}>
-          <Plus size={15} /> Buat Event
-        </Link>
+        <div className="top-header-actions ml-auto">
+          <Link href="/dashboard/events/new" className="btn btn-primary">
+            <Plus size={15} /> Buat Event
+          </Link>
+        </div>
       </div>
 
       <div className="page-wrapper">

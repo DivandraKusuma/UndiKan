@@ -1210,6 +1210,129 @@ tbody tr:hover {
 }
 
 /* ================================================
+   MOBILE RESPONSIVENESS
+   ================================================ */
+@media (max-width: 768px) {
+  /* Layout adjustments */
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .page-wrapper {
+    padding: 20px 20px 80px 20px; /* Extra padding bottom for scrolling */
+  }
+
+  .top-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    height: auto;
+    min-height: var(--header-height);
+    padding: 20px;
+  }
+
+  .top-header-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .top-header-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Grid adjustments */
+  .stat-grid, .form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Mobile Header Menu Bar */
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--sidebar-bg);
+    border-bottom: 1px solid var(--sidebar-border);
+    position: sticky;
+    top: 0;
+    z-index: 90;
+  }
+
+  .mobile-header-logo {
+    font-size: 18px;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+  }
+
+  .mobile-header-logo span {
+    color: var(--accent);
+  }
+
+  .mobile-menu-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-sm);
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Sidebar overlay */
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+  }
+
+  .sidebar-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Data Table mobile scrolling optimization */
+  .table-wrapper {
+    margin: 0 -20px;
+    padding: 0 20px;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Hide mobile header on desktop */
+@media (min-width: 769px) {
+  .mobile-header, .sidebar-overlay {
+    display: none;
+  }
+}
+
+/* ================================================
    MISC UTILITIES
    ================================================ */
 .flex { display: flex; }
@@ -1219,6 +1342,15 @@ tbody tr:hover {
 .gap-2 { gap: 8px; }
 .gap-3 { gap: 12px; }
 .gap-4 { gap: 16px; }
+.w-full { width: 100%; }
+.ml-auto { margin-left: auto; }
+
+@media (min-width: 769px) {
+  .d-md-none { display: none !important; }
+}
+@media (max-width: 768px) {
+  .ml-auto { margin-left: 0 !important; }
+}
 .mt-1 { margin-top: 4px; }
 .mt-2 { margin-top: 8px; }
 .mt-3 { margin-top: 12px; }
