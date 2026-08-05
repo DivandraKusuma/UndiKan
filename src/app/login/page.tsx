@@ -36,7 +36,7 @@ export default function LoginPage() {
       {/* Left branding panel */}
       <div className="auth-left">
         <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-          <div className="auth-brand">Kocok<span>!</span></div>
+          <div className="auth-brand">UndiKan<span>!</span></div>
           <p className="auth-tagline" style={{ marginTop: 12 }}>
             Platform undian untuk Event Organizer
           </p>

@@ -3,7 +3,7 @@ import './globals.css'
 import NextTopLoader from 'nextjs-toploader'
 
 export const metadata: Metadata = {
-  title: 'Kocok! — Sistem Undian Doorprize',
+  title: 'UndiKan — Sistem Undian Doorprize',
   description: 'Aplikasi sistem undian doorprize profesional untuk Event Organizer',
 }
 

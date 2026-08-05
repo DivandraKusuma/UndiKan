@@ -81,7 +81,7 @@ export default function CheckPage() {
           <ArrowLeft size={18} />
         </Link>
         <span style={{ fontSize: 16, fontWeight: 800, color: '#FFFFFF', letterSpacing: -0.5 }}>
-          Kocok<span style={{ color: '#299D91' }}>!</span>
+          UndiKan<span style={{ color: '#299D91' }}>!</span>
         </span>
       </div>
 
@@ -89,7 +89,7 @@ export default function CheckPage() {
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <h1 style={{ fontSize: 28, fontWeight: 800, color: '#FFFFFF', fontFamily: 'Inter, sans-serif' }}>
-            Cek Tiket <span style={{ color: '#299D91' }}>Kocok!</span>
+            Cek Tiket <span style={{ color: '#299D91' }}>UndiKan!</span>
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, marginTop: 8 }}>
             Masukkan nomor tiket Anda untuk cek apakah menang

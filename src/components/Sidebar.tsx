@@ -49,7 +49,7 @@ export default function Sidebar({ userEmail, isOpen, onClose }: SidebarProps) {
       <div className="sidebar-logo">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div className="sidebar-logo-text">
-            Kocok<span>!</span>
+            UndiKan<span>!</span>
           </div>
           {/* Mobile close button */}
           <button 

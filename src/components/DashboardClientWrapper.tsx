@@ -27,7 +27,7 @@ export default function DashboardClientWrapper({ userEmail, children }: Dashboar
         {/* Mobile Header */}
         <div className="mobile-header">
           <div className="mobile-header-logo">
-            Kocok<span>!</span>
+            UndiKan<span>!</span>
           </div>
           <button 
             className="mobile-menu-btn" 

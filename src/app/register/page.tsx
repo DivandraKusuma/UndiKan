@@ -44,7 +44,7 @@ export default function RegisterPage() {
     <div className="auth-page">
       <div className="auth-left">
         <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-          <div className="auth-brand">Kocok<span>!</span></div>
+          <div className="auth-brand">UndiKan<span>!</span></div>
           <p className="auth-tagline" style={{ marginTop: 12 }}>
             Daftar gratis dan mulai kelola undian doorprize event Anda
           </p>
