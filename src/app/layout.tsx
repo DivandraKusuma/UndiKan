@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import NextTopLoader from 'nextjs-toploader'
 
 export const metadata: Metadata = {
   title: 'Kocok! — Sistem Undian Doorprize',
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
-      <body>{children}</body>
+      <body>
+        <NextTopLoader color="#299D91" showSpinner={false} height={3} />
+        {children}
+      </body>
     </html>
   )
 }
