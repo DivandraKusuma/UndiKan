@@ -53,7 +53,7 @@ export default function NewEventPage() {
         </div>
       </div>
 
-      <div className="page-wrapper" style={{ maxWidth: 640 }}>
+      <div className="page-wrapper" style={{ maxWidth: 1000, margin: '0 auto' }}>
         <div className="card">
           <div className="card-header">
             <div>
